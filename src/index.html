@@ -5,19 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do</title>
+    <!-- CSS -->
     <link rel="stylesheet" href="sass/main.scss">
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/a891bda96a.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <main>
-        <div class="wrapper">
-            <header>
-                <picture>
-                    <source srcset="img/bgbild.png?as=avif" type="image/avif">
-                    <source srcset="img/bgbild.png?as=webp" type="image/webp">
-                    <img src="img/bgbild.png" alt="Dekorativ illustration av löv och blad">
-                </picture>
-            </header>
+    <div class="wrapper">
+        <header>
+            <picture>
+                <source srcset="img/bgbild.png?as=avif" type="image/avif">
+                <source srcset="img/bgbild.png?as=webp" type="image/webp">
+                <img src="img/bgbild.png" alt="Dekorativ illustration av löv och blad">
+            </picture>
+        </header>
+        <main>
             <div class="container">
                 <h1>To do-list</h1>
                 <div class="hl-container">
@@ -42,12 +45,31 @@
                 </form>
                 <div class="hl-container">
                     <h2>Kommande uppgifter</h2>
-
                     <div class="bg-line">
                     </div> <!-- slut på bg-line -->
                 </div> <!-- Slut på hl-container -->
+                <div class="comingtasks">
+                    <ul>
+                        <li><span class="task"><input type="checkbox" name="done" id="index"><label
+                                    for="index">Uppgiftstexten står
+                                    här</label></span><button class="delete"><i class="fa-solid fa-trash"></i></button>
+                        </li>
+                        <li><span class="task"><input type="checkbox" name="done" id="index1"><label
+                                    for="index1">Uppgiftstexten står
+                                    här</label></span><button class="delete"><i class="fa-solid fa-trash"></i></button>
+                        </li>
+                        <li><span class="task"><input type="checkbox" name="done" id="index2"><label
+                                    for="index2">Uppgiftstexten står
+                                    här</label></span><button class="delete"><i class="fa-solid fa-trash"></i></button>
+                        </li>
+                        <li class="completed"><span class="task"><input type="checkbox" name="done" id="index3"><label
+                                    for="index3">Uppgiftstexten står
+                                    här</label></span><button class="delete"><i class="fa-solid fa-trash"></i></button>
+                        </li>
+                    </ul>
+                </div><!-- slut på comingtasks -->
             </div><!-- slut på container -->
-        </div> <!-- slut på wrapper -->
+    </div> <!-- slut på wrapper -->
     </main>
 </body>
 

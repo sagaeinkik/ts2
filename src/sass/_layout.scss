@@ -6,7 +6,7 @@
 }
 
 .container {
-    width: 60%;
+    width: 70%;
     margin: auto;
     position: relative;
 
@@ -34,7 +34,7 @@
 }
 
 form {
-    width: 70%;
+    width: 60%;
     margin: auto;
     .formthing {
         font-family: a.$bread;
@@ -44,6 +44,9 @@ form {
         width: 100%;
         border-radius: 50px;
         border: 3px solid a.$accent;
+        &:hover {
+            border: 3px solid #bc937f;
+        }
     }
 
     div.controls {
@@ -58,6 +61,44 @@ form {
             width: fit-content;
             cursor: pointer;
         }
+        input[type='submit'] {
+            background-color: #fff;
+        }
+        input[type='reset'] {
+            background-color: a.$bgc;
+        }
+    }
+}
+
+div.comingtasks {
+    width: 60%;
+    margin: auto;
+    ul li {
+        list-style: none;
+        border-bottom: 2px solid a.$secondary;
+        margin-top: 1em;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        accent-color: a.$accent;
+
+        input[type='checkbox'] {
+            margin-right: 0.4em;
+            width: 20px;
+            height: 20px;
+            clip-path: circle(44% at 50% 50%);
+            position: relative;
+            top: 0.3em;
+        }
+        button.delete {
+            border: none;
+            background-color: rgba(0, 0, 0, 0);
+            color: a.$primary;
+            font-size: 1.1em;
+        }
+    }
+    li.completed {
+        text-decoration: 2px solid line-through;
     }
 }
 
