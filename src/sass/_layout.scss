@@ -1,0 +1,66 @@
+@use 'assets' as a;
+
+.wrapper {
+    height: 100vh;
+    background-color: a.$bgc;
+}
+
+.container {
+    width: 60%;
+    margin: auto;
+    position: relative;
+
+    h1 {
+        text-align: center;
+        color: a.$primary;
+    }
+
+    div.hl-container {
+        position: relative;
+        h2 {
+            position: relative;
+            z-index: 1;
+            color: a.$primary;
+            text-align: center;
+        }
+        div.bg-line {
+            background-color: a.$accent;
+            height: 1.5em;
+            position: absolute;
+            width: 100%;
+            top: 1.8em;
+        }
+    }
+}
+
+form {
+    width: 70%;
+    margin: auto;
+    .formthing {
+        font-family: a.$bread;
+        padding: 0.5em 0.8em;
+        font-size: 1em;
+        display: block;
+        width: 100%;
+        border-radius: 50px;
+        border: 3px solid a.$accent;
+    }
+
+    div.controls {
+        margin-top: 2em;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+
+        input[type='submit'],
+        input[type='reset'] {
+            @extend .formthing;
+            width: fit-content;
+            cursor: pointer;
+        }
+    }
+}
+
+header img {
+    width: 100%;
+}

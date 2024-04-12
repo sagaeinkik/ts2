@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do</title>
+    <link rel="stylesheet" href="sass/main.scss">
+</head>
+
+<body>
+    <main>
+        <div class="wrapper">
+            <header>
+                <picture>
+                    <source srcset="img/bgbild.png?as=avif" type="image/avif">
+                    <source srcset="img/bgbild.png?as=webp" type="image/webp">
+                    <img src="img/bgbild.png" alt="Dekorativ illustration av löv och blad">
+                </picture>
+            </header>
+            <div class="container">
+                <h1>To do-list</h1>
+                <div class="hl-container">
+                    <h2>Lägg till ny uppgift</h2>
+                    <div class="bg-line">
+                    </div> <!-- slut på bg-line -->
+                </div> <!-- Slut på hl-container -->
+                <form>
+                    <label for="syssla">Uppgift:</label>
+                    <input type="text" name="syssla" id="syssla" class="formthing">
+                    <label for="priority">Prioritet:</label>
+                    <select name="priority" id="priority" class="formthing">
+                        <option value="" selected disabled>Välj i listan</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    <div class="controls">
+                        <input type="submit" value="Lägg till">
+                        <input type="reset" value="Börja om">
+                    </div>
+                </form>
+                <div class="hl-container">
+                    <h2>Kommande uppgifter</h2>
+
+                    <div class="bg-line">
+                    </div> <!-- slut på bg-line -->
+                </div> <!-- Slut på hl-container -->
+            </div><!-- slut på container -->
+        </div> <!-- slut på wrapper -->
+    </main>
+</body>
+
+</html>
