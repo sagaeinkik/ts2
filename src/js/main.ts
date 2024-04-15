@@ -1,6 +1,4 @@
-import { Todo } from './class.ts';
 import { TodoList } from './class.ts';
-const uuid = require('uuid');
 
 //Ny instans av klass
 const list = new TodoList();
@@ -58,14 +56,19 @@ function renderList(): void {
 
     //Hämta todo-array
     const todolist = list.getTodos();
-    console.log(todolist);
 
     //Loopa genom
-    todolist.forEach((task, index) => {
-        /* <li class="prio1"><span class="task"><input type="checkbox" name="done" id="{nr}"><label for="{nr}">{uppgiftstext}</label></span><button class="delete"><i class="fa-solid fa-trash"></i></button></li> */
+    todolist.forEach((task) => {
+        /* Mål: 
+        <li class="prio1">
+            <span class="task"><input type="checkbox" name="done" id="{nr}">
+                <label for="{nr}">{uppgiftstext}</label>
+            </span>
+            <button class="delete"><i class="fa-solid fa-trash"></i></button>
+        </li> */
+        //Li-element
         const liEl = document.createElement('li') as HTMLLIElement;
         liEl.classList.add(`prio${task.priority}`);
-
         //Span
         const spanEl = document.createElement('span') as HTMLSpanElement;
         spanEl.classList.add('task');
@@ -74,11 +77,18 @@ function renderList(): void {
         const checkbox = document.createElement('input') as HTMLInputElement;
         checkbox.setAttribute('type', 'checkbox');
         checkbox.setAttribute('name', 'done');
-        checkbox.setAttribute('id', `index${index}`);
+        checkbox.setAttribute('id', `index${task.id}`);
+
+        //Bocka i checkbox från början baserat på completed
+        checkbox.checked = task.completed;
+        //Lägg på completed-klass om completed är sant
+        if (task.completed) {
+            liEl.classList.add('completed');
+        }
 
         //Label
         const label = document.createElement('label');
-        label.setAttribute('for', `index${index}`);
+        label.setAttribute('for', `index${task.id}`);
 
         //Uppgiftstext
         const text = document.createTextNode(task.task);
@@ -101,26 +111,18 @@ function renderList(): void {
         liEl.appendChild(btn);
         tasksUL?.appendChild(liEl);
 
-        //Uppdatera om tasks är slutförda
+        //Händelselyssnare
+        //Uppdatera completed baserat på i/urbockad
         checkbox.addEventListener('change', (e: Event) => {
-            if (checkbox.checked) {
-                list.markTodoCompleted(index);
-                liEl.classList.add('completed');
-            } else {
-                task.completed = false;
-                liEl.classList.remove('completed');
-            }
+            list.markTodoCompleted(task.id);
+            //Uppdatera klass
+            liEl.classList.toggle('completed', checkbox.checked);
         });
-
-        //Ta bort task
-        /*  btn.addEventListener('click', (e: Event) => {
-            const taskID = liEl.getAttribute('data-id');
-            console.log(taskID);
-            if (taskID) {
-                list.deleteTask(index);
-                liEl.remove();
-                console.log(todolist);
-            }
-        }); */
+        //Ta bort uppgift (detta är varför jag hade uuid)
+        btn.addEventListener('click', (e: Event) => {
+            list.deleteTask(task.id);
+            liEl.remove();
+            renderList();
+        });
     });
 }

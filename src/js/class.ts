@@ -1,4 +1,10 @@
+import { v4 as uuidv4 } from 'uuid';
+
+/* Jag tog mig friheten att lägga till en egenskap eftersom ni inte uttryckligen skrev att man inte fick. 
+Detta är för att om man tar bort index ur en array i slumpmässig ordning via en foreach-loop, så ballar index ur
+och man påverkar objekt man inte ville röra. Därför lade jag till uuid */
 export interface Todo {
+    id: string;
     task: string;
     completed: boolean;
     priority: number;
@@ -26,9 +32,9 @@ export class TodoList {
             //Ge false
             return false;
         }
-
-        //Skapa ny todo med completed, false
-        const newTodo: Todo = { task, completed: false, priority };
+        const id: string = uuidv4();
+        //Skapa ny todo med completed, false från start
+        const newTodo: Todo = { id, task, completed: false, priority };
         //peta in i array
         this.todos.push(newTodo);
         //Spara
@@ -44,17 +50,15 @@ export class TodoList {
     }
 
     // Markera todo som klar
-    markTodoCompleted(index: number): void {
+    markTodoCompleted(taskid: string): void {
+        const todo = this.todos.find((todo) => todo.id === taskid);
         //Hämta checkboxen med taskid
-        const checkbox = document.getElementById(`index${index}`) as HTMLInputElement;
+        /* const checkbox = document.getElementById(`index${taskid}`) as HTMLInputElement; */
 
         // Kontrollera om checkboxen är markerad eller inte
-        if (checkbox.checked) {
-            // Om checkboxen är markerad, markera uppgiften som klar
-            this.todos[index].completed = true;
-        } else {
-            // Om checkboxen inte är markerad är completed false
-            this.todos[index].completed = false;
+        if (todo) {
+            todo.completed = !todo.completed;
+            this.saveTodo();
         }
         //Spara ändringar
         this.saveTodo();
@@ -66,10 +70,10 @@ export class TodoList {
     }
 
     //Radera todo
-    public deleteTask(index: number): void {
+    public deleteTask(taskid: string): void {
+        const index = this.todos.findIndex((todo) => todo.id === taskid);
         if (index !== -1) {
             this.todos.splice(index, 1);
-            //Spara
             this.saveTodo();
         }
     }
