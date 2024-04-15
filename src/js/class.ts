@@ -44,17 +44,17 @@ export class TodoList {
     }
 
     // Markera todo som klar
-    markTodoCompleted(todoIndex: number): void {
-        //Hämta checkboxen med todoindex
-        const checkbox = document.getElementById(`index${todoIndex}`) as HTMLInputElement;
+    markTodoCompleted(index: number): void {
+        //Hämta checkboxen med taskid
+        const checkbox = document.getElementById(`index${index}`) as HTMLInputElement;
 
         // Kontrollera om checkboxen är markerad eller inte
         if (checkbox.checked) {
             // Om checkboxen är markerad, markera uppgiften som klar
-            this.todos[todoIndex].completed = true;
+            this.todos[index].completed = true;
         } else {
             // Om checkboxen inte är markerad är completed false
-            this.todos[todoIndex].completed = false;
+            this.todos[index].completed = false;
         }
         //Spara ändringar
         this.saveTodo();
@@ -67,8 +67,10 @@ export class TodoList {
 
     //Radera todo
     public deleteTask(index: number): void {
-        this.todos.splice(index, 1);
-        //Spara
-        this.saveTodo();
+        if (index !== -1) {
+            this.todos.splice(index, 1);
+            //Spara
+            this.saveTodo();
+        }
     }
 }
