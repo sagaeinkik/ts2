@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Allura&family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Montserrat:wght@100..900&display=swap');
 
 //Variabler
 $bread: Montserrat, Arial, Helvetica, sans-serif;
@@ -8,3 +8,17 @@ $bgc: #f6f2ec;
 $primary: #7a6642;
 $secondary: #e3d3bf;
 $accent: #efd5c9;
+
+//Prio
+$prio1: #e62600;
+$prio2: #ce8600;
+$prio3: green;
+
+@mixin prio1 {
+    color: $prio1;
+    font-weight: 800;
+}
+@mixin prio2 {
+    color: $prio2;
+    font-weight: 600;
+}

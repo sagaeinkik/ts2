@@ -48,6 +48,9 @@ form {
             border: 3px solid #bc937f;
         }
     }
+    input[type='number'] {
+        width: fit-content;
+    }
 
     div.controls {
         margin-top: 2em;
@@ -68,6 +71,10 @@ form {
             background-color: a.$bgc;
         }
     }
+    .info {
+        font-size: 0.7em;
+        margin-left: 0.6em;
+    }
 }
 
 div.comingtasks {
@@ -81,6 +88,7 @@ div.comingtasks {
         width: 100%;
         justify-content: space-between;
         accent-color: a.$accent;
+        color: a.$primary;
 
         input[type='checkbox'] {
             margin-right: 0.4em;
@@ -95,7 +103,17 @@ div.comingtasks {
             background-color: rgba(0, 0, 0, 0);
             color: a.$primary;
             font-size: 1.1em;
+            cursor: pointer;
         }
+    }
+    li.prio1 {
+        @include a.prio1;
+    }
+    li.prio2 {
+        @include a.prio2;
+    }
+    li.prio3 {
+        color: green;
     }
     li.completed {
         text-decoration: 2px solid line-through;
@@ -104,4 +122,11 @@ div.comingtasks {
 
 header img {
     width: 100%;
+}
+
+span.error {
+    color: a.$prio1;
+    display: block;
+    max-width: 35em;
+    margin: 0 auto;
 }

@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="sass/main.scss">
     <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/a891bda96a.js" crossorigin="anonymous"></script>
+    <!-- JS -->
+    <script src="js/main.ts" type="module"></script>
 </head>
 
 <body>
@@ -28,16 +30,12 @@
                     <div class="bg-line">
                     </div> <!-- slut på bg-line -->
                 </div> <!-- Slut på hl-container -->
+                <span class="error"></span>
                 <form>
                     <label for="syssla">Uppgift:</label>
                     <input type="text" name="syssla" id="syssla" class="formthing">
-                    <label for="priority">Prioritet:</label>
-                    <select name="priority" id="priority" class="formthing">
-                        <option value="" selected disabled>Välj i listan</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
+                    <label for="priority">Prioritet: <span class="info">(1 är viktigast)</span></label>
+                    <input type="number" name="priority" id="priority" min="1" max="3" class="formthing">
                     <div class="controls">
                         <input type="submit" value="Lägg till">
                         <input type="reset" value="Börja om">
@@ -50,20 +48,20 @@
                 </div> <!-- Slut på hl-container -->
                 <div class="comingtasks">
                     <ul>
-                        <li><span class="task"><input type="checkbox" name="done" id="index"><label
+                        <li class="prio1"><span class="task"><input type="checkbox" name="done" id="index"><label
                                     for="index">Uppgiftstexten står
                                     här</label></span><button class="delete"><i class="fa-solid fa-trash"></i></button>
                         </li>
-                        <li><span class="task"><input type="checkbox" name="done" id="index1"><label
+                        <li class="prio2"><span class="task"><input type="checkbox" name="done" id="index1"><label
                                     for="index1">Uppgiftstexten står
                                     här</label></span><button class="delete"><i class="fa-solid fa-trash"></i></button>
                         </li>
-                        <li><span class="task"><input type="checkbox" name="done" id="index2"><label
+                        <li class="prio3"><span class="task"><input type="checkbox" name="done" id="index2"><label
                                     for="index2">Uppgiftstexten står
                                     här</label></span><button class="delete"><i class="fa-solid fa-trash"></i></button>
                         </li>
-                        <li class="completed"><span class="task"><input type="checkbox" name="done" id="index3"><label
-                                    for="index3">Uppgiftstexten står
+                        <li class="completed prio2"><span class="task"><input type="checkbox" name="done"
+                                    id="index3"><label for="index3">Uppgiftstexten står
                                     här</label></span><button class="delete"><i class="fa-solid fa-trash"></i></button>
                         </li>
                     </ul>
