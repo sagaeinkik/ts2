@@ -1,0 +1,43 @@
+@use 'assets';
+
+//1000px
+@media (max-width: 1000px) {
+    .container {
+        width: 80%;
+    }
+    form {
+        width: 80%;
+    }
+    div.comingtasks {
+        width: 80%;
+    }
+}
+
+// 600px
+@media (max-width: 600px) {
+    container {
+        width: 90%;
+    }
+    form {
+        width: 100%;
+    }
+    div.comingtasks {
+        width: 100%;
+    }
+}
+
+//380
+@media (max-width: 380px) {
+    .container {
+        width: 95%;
+
+        div.hl-container {
+            h2 {
+                font-size: 2.2em;
+            }
+            div.bg-line {
+                top: 1.3em;
+            }
+        }
+    }
+}
