@@ -51,14 +51,12 @@ export class TodoList {
 
     // Markera todo som klar
     markTodoCompleted(taskid: string): void {
+        //Hitta index
         const todo = this.todos.find((todo) => todo.id === taskid);
-        //Hämta checkboxen med taskid
-        /* const checkbox = document.getElementById(`index${taskid}`) as HTMLInputElement; */
 
         // Kontrollera om checkboxen är markerad eller inte
         if (todo) {
             todo.completed = !todo.completed;
-            this.saveTodo();
         }
         //Spara ändringar
         this.saveTodo();
@@ -71,7 +69,9 @@ export class TodoList {
 
     //Radera todo
     public deleteTask(taskid: string): void {
+        //Hitta index
         const index = this.todos.findIndex((todo) => todo.id === taskid);
+        //Klipp ut index
         if (index !== -1) {
             this.todos.splice(index, 1);
             this.saveTodo();

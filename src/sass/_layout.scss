@@ -1,28 +1,32 @@
 @use 'assets' as a;
 
+//Höjd och färg på wrapper
 .wrapper {
     height: 100vh;
     background-color: a.$bgc;
 }
 
+//Själva innehållet
 .container {
     width: 70%;
     margin: auto;
     position: relative;
-
+    //Todo-rubrik
     h1 {
         text-align: center;
         color: a.$primary;
     }
-
+    //Container för h2 och rosa rad
     div.hl-container {
         position: relative;
+        //H2: position för att z-index ska gälla
         h2 {
             position: relative;
             z-index: 1;
             color: a.$primary;
             text-align: center;
         }
+        //Rosa rad
         div.bg-line {
             background-color: a.$accent;
             height: 1.5em;
@@ -33,9 +37,13 @@
     }
 }
 
+//Formulär
 form {
+    //Centrera
     width: 60%;
     margin: auto;
+
+    //Allmänna formulär-kontroller
     .formthing {
         font-family: a.$bread;
         padding: 0.5em 0.8em;
@@ -51,7 +59,7 @@ form {
     input[type='number'] {
         width: fit-content;
     }
-
+    //Submit/reset
     div.controls {
         margin-top: 2em;
         display: flex;
@@ -66,20 +74,25 @@ form {
         }
         input[type='submit'] {
             background-color: #fff;
+            color: black;
         }
         input[type='reset'] {
             background-color: a.$bgc;
+            color: black;
         }
     }
+    //Text om prioriteringar
     .info {
         font-size: 0.7em;
         margin-left: 0.6em;
     }
 }
 
+//Kommande uppgifter:
 div.comingtasks {
     width: 60%;
     margin: auto;
+    //Styling för lista
     ul li {
         list-style: none;
         border-bottom: 2px solid a.$secondary;
@@ -90,6 +103,7 @@ div.comingtasks {
         accent-color: a.$accent;
         color: a.$primary;
 
+        //Checkbox
         input[type='checkbox'] {
             margin-right: 0.4em;
             width: 20px;
@@ -98,6 +112,7 @@ div.comingtasks {
             position: relative;
             top: 0.3em;
         }
+        //Ta bort-knapp
         button.delete {
             border: none;
             background-color: rgba(0, 0, 0, 0);
@@ -106,6 +121,7 @@ div.comingtasks {
             cursor: pointer;
         }
     }
+    //Prio-klasser
     li.prio1 {
         @include a.prio1;
     }
@@ -124,6 +140,7 @@ header img {
     width: 100%;
 }
 
+//Felmeddelande
 span.error {
     color: a.$prio1;
     display: block;
@@ -131,6 +148,7 @@ span.error {
     margin: 0 auto;
 }
 
+//jag
 p.cred {
     max-width: 35em;
     margin: 3em auto 1em;

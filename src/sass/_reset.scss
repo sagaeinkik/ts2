@@ -1,11 +1,13 @@
 @use 'assets' as a;
 
+//allmänna regler
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+//max-bredder, overflow, tyspnitt och linjehöjd
 body {
     max-width: 1900px;
     background-color: a.$bgc;
@@ -16,6 +18,7 @@ body {
     line-height: 1.9;
 }
 
+//Rubriker
 h1 {
     font-family: a.$headline;
     font-size: 4em;
@@ -24,8 +27,4 @@ h1 {
 h2 {
     font-family: a.$headline;
     font-size: 2.6em;
-}
-
-p.uppercase {
-    text-transform: uppercase;
 }

@@ -2,6 +2,7 @@
 
 //1000px
 @media (max-width: 1000px) {
+    //Bredda saker
     .container {
         width: 80%;
     }
@@ -15,8 +16,19 @@
 
 // 600px
 @media (max-width: 600px) {
-    container {
+    //Bredda mer
+    .container {
         width: 90%;
+        //Gör rubrikerna mindre
+        div.hl-container {
+            h2 {
+                font-size: 2em;
+            }
+            div.bg-line {
+                top: 1.3em;
+                height: 1.2em;
+            }
+        }
     }
     form {
         width: 100%;
@@ -28,16 +40,8 @@
 
 //380
 @media (max-width: 380px) {
+    //Bredda lite till
     .container {
         width: 95%;
-
-        div.hl-container {
-            h2 {
-                font-size: 2.2em;
-            }
-            div.bg-line {
-                top: 1.3em;
-            }
-        }
     }
 }
